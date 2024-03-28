@@ -28,7 +28,7 @@ public class OrderApiController {
 
     @GetMapping("/api/v3/orders")
     public List<OrderDto> orderV3(){
-        List<Order> orders = orderRepository.findAllByWithItem();
+        List<Order> orders = orderRepository.findAllWithItem();
         List<OrderDto> collect = orders.stream()
                 .map(n -> new OrderDto(n))
                 .collect(Collectors.toList());
